@@ -1,0 +1,48 @@
+#ParentContainer_1 {
+    width: 1000px;
+    height: 1000px;
+    background-color: slategray;
+    overflow: auto;
+  }
+  
+  #ChildContainer_1 {
+    float: left;
+    width: 450px;
+    height: 1200px;
+    background-color: blueviolet;
+    border-color: white;
+    border-right: 10px;
+  }
+  
+  #GrandChildContainer_1 {
+    width: 300px;
+    height: 500px;
+    padding: 50 0 0 100;
+    overflow: auto;
+  }
+  
+  #GrandChild_1 {
+    width: 300px;
+    height: 800px;
+    background-color: aqua;
+  }
+  
+  #ChildContainer_2 {
+    float: right;
+    width: 500px;
+    height: 1200px;
+    background-color: blueviolet;
+  }
+  
+  #GrandChildContainer_2 {
+    width: 300px;
+    height: 500px;
+    padding: 50 0 0 100;
+    overflow: auto;
+  }
+  
+  #GrandChild_2 {
+    width: 300px;
+    height: 800px;
+    background-color: aqua;
+  }
