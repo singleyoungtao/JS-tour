@@ -6,6 +6,7 @@ function thisHandler1() {
 }
 
 // PS: var 的变量在Window上可以找到，而let 的变量并不在Window上，
+// 使用 var 在全局级别（在函数外部）进行声明都会自动成为 window 对象上的一个属性, let 则不会
 // 所以此处如果是let 的变量，this.test 则为undefined
 thisHandler1(); // test: hahaha this: window
 window.thisHandler1(); //
