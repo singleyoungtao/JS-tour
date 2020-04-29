@@ -5,6 +5,8 @@ function thisHandler1() {
     console.log('test:', this.test, 'this:', this);
 }
 
+// PS: var 的变量在Window上可以找到，而let 的变量并不在Window上，
+// 所以此处如果是let 的变量，this.test 则为undefined
 thisHandler1(); // test: hahaha this: window
 window.thisHandler1(); //
 
