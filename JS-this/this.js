@@ -152,6 +152,45 @@ thisHandler6.test(); // apple this指向window
 // 如果箭头函数被非箭头函数包含， this绑定最近一层
 // 非箭头函数的this，否则，this的值会被设置为undefined
 
+// PS: 箭头函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
+function Timer() {
+  this.s1 = 0;
+  this.s2 = 0;
+  // 箭头函数
+  setInterval(() => this.s1++, 1000);
+  // 普通函数
+  setInterval(function () {
+    this.s2++;
+  }, 1000);
+}
+
+var timer = new Timer();
+
+setTimeout(() => console.log('s1: ', timer.s1), 3100);
+setTimeout(() => console.log('s2: ', timer.s2), 3100);
+// s1: 3
+// s2: 0
+
+var handler = {
+  id: '123456',
+
+  init: function() {
+    document.addEventListener('click',
+      event => this.doSomething(event.type), false);
+  },
+
+  doSomething: function(type) {
+    console.log('Handling ' + type  + ' for ' + this.id);
+  }
+};
+// 上面代码的init方法中，使用了箭头函数，这导致这个箭头函数里面的this，总是指向handler对象。
+// 否则，回调函数运行时，this.doSomething这一行会报错，因为此时this指向document对象。
+
+// this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。
+// 正是因为它没有this，所以也就不能用作构造函数。
+
+
+
 // 闭包
 
 var name = 'apple';
