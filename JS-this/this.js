@@ -170,6 +170,7 @@ setTimeout(() => console.log('s1: ', timer.s1), 3100);
 setTimeout(() => console.log('s2: ', timer.s2), 3100);
 // s1: 3
 // s2: 0
+// setTimeout 和 setInterval 的回调函数默认指向window，但如果是箭头函数作为回调的时候，箭头函数仍旧无视this的规则，使用定义时继承来的this
 
 var handler = {
   id: '123456',
